@@ -33,3 +33,45 @@ export function addNote(
 
 	notes.push(newNote);
 }
+
+export function updateNote(
+	id: string,
+	updates: {
+		title?: string;
+		content?: string;
+		group?: string;
+		color?: string;
+	}
+) {
+	const note = notes.find((note) => note.id === id);
+
+	if (!note) {
+		return;
+	}
+
+	if (updates.title !== undefined) {
+		note.title = updates.title;
+	}
+
+	if (updates.content !== undefined) {
+		note.content = updates.content;
+	}
+
+	if (updates.group !== undefined) {
+		note.group = updates.group;
+	}
+
+	if (updates.color !== undefined) {
+		note.color = updates.color;
+	}
+}
+
+export function deleteNote(id: string) {
+	const index = notes.findIndex((note) => note.id === id);
+
+	if (index === -1) {
+		return;
+	}
+
+	notes.splice(index, 1);
+}
