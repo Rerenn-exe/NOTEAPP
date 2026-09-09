@@ -9,13 +9,13 @@
 	});
 </script>
 
-<div class="flex w-full gap-4">
+<div class="flex w-full gap-3">
 	{#each dates as date, i (date.toISOString())}
 		<Button
-			class={`flex h-20 flex-1 flex-col gap-[0.2rem] rounded-xl bg-[#393939] ${
+			class={`flex h-20 flex-1 flex-col gap-[0.1rem] rounded-xl bg-[#393939] ${
 				i === 0
 					? 'bg-[#393939] text-white'
-					: 'border-[0.3px] border-[#393939] bg-white text-[#393939]'
+					: 'border-[0.3px] border-[#c9c4c4] bg-white text-[#393939]'
 			}`}
 		>
 			<span class="text-xs">
