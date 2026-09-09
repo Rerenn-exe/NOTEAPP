@@ -2,15 +2,27 @@
 	import Edit from 'lucide-svelte/icons/edit';
 	import Trash2 from 'lucide-svelte/icons/trash-2';
 	import { notes, noteFilter } from '$lib/stores/notes.svelte';
+	import { SvelteDate } from 'svelte/reactivity';
 
 	let selectedNote = $state<string | null>(null);
 	let holdingNote = $state<string | null>(null);
 	let holdTimer: ReturnType<typeof setTimeout>;
 
 	let filteredNotes = $derived(
-		noteFilter.selectedGroup === 'All'
-			? notes
-			: notes.filter((note) => note.group === noteFilter.selectedGroup)
+		notes.filter((note) => {
+			const matchesGroup =
+				noteFilter.selectedGroup === 'All' || note.group === noteFilter.selectedGroup;
+
+			const noteDate = new SvelteDate(note.dateCreated);
+
+			const matchesDate =
+				noteFilter.selectedDates.length === 0 ||
+				noteFilter.selectedDates.some(
+					(selectedDate) => noteDate.toDateString() === selectedDate.toDateString()
+				);
+
+			return matchesGroup && matchesDate;
+		})
 	);
 
 	function startHold(id: string) {
