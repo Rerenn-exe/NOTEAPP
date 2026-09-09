@@ -9,13 +9,17 @@ export type Note = {
 	color: string;
 };
 
+export const noteFilter = $state({
+	selectedGroup: 'All'
+});
+
 export const notes = $state<Note[]>([
 	{
 		id: '1',
 		dateCreated: new SvelteDate(),
 		title: 'My first note',
 		content: 'This is my first note.',
-		group: 'Studies',
+		group: 'Personal',
 		color: '#DBEAFE'
 	},
 	{
@@ -23,7 +27,7 @@ export const notes = $state<Note[]>([
 		dateCreated: new SvelteDate(),
 		title: 'Shopping list',
 		content: 'Milk, eggs, bread',
-		group: 'Group 2',
+		group: 'Shopping',
 		color: '#FEF3C7'
 	},
 	{
@@ -31,47 +35,47 @@ export const notes = $state<Note[]>([
 		dateCreated: new SvelteDate(),
 		title: 'Study notes',
 		content: 'Learn Svelte 5 stores.',
-		group: 'Group 1',
+		group: 'Studies',
 		color: '#DCFCE7'
 	},
 	{
 		id: '4',
 		dateCreated: new SvelteDate(),
-		title: 'My first note',
-		content: 'This is my first note.',
-		group: 'Group 1',
+		title: 'Weekend activities',
+		content: 'Go for a walk and watch a movie.',
+		group: 'Activities',
 		color: '#FCE7F3'
 	},
 	{
 		id: '5',
 		dateCreated: new SvelteDate(),
-		title: 'My first note',
-		content: 'This is my first note.',
-		group: 'Group 1',
+		title: 'Work tasks',
+		content: 'Finish the project documentation.',
+		group: 'Work',
 		color: '#EDE9FE'
 	},
 	{
 		id: '6',
 		dateCreated: new SvelteDate(),
-		title: 'My first note',
-		content: 'This is my first note.',
-		group: 'Group 1',
+		title: 'Personal goals',
+		content: 'Read a few pages today.',
+		group: 'Personal',
 		color: '#CFFAFE'
 	},
 	{
 		id: '7',
 		dateCreated: new SvelteDate(),
-		title: 'My first note',
-		content: 'This is my first note.',
-		group: 'Group 1',
+		title: 'Things to buy',
+		content: 'Notebook and new pen.',
+		group: 'Shopping',
 		color: '#FEE2E2'
 	},
 	{
 		id: '8',
 		dateCreated: new SvelteDate(),
-		title: 'My first note',
-		content: 'This is my first note.',
-		group: 'Group 1',
+		title: 'Study reminder',
+		content: 'Practice Svelte components.',
+		group: 'Studies',
 		color: '#F3F4F6'
 	}
 ]);
