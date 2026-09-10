@@ -5,7 +5,7 @@
 	import { noteFilter } from '$lib/stores/notes.svelte';
 </script>
 
-<div class="flex flex-col border-[#c9c4c4] pt-8">
+<div class="flex flex-col border-[#c9c4c4] pt-8 pb-2">
 	<div class="relative w-full">
 		<Search class="absolute top-1/2 left-4 size-5 -translate-y-1/2 text-[#393939]" />
 

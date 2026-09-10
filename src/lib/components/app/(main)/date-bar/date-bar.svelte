@@ -9,7 +9,7 @@
 	});
 </script>
 
-<div class="flex w-full gap-3">
+<div class="flex w-full justify-between gap-2">
 	{#each dates as date, i (date.toISOString())}
 		<Button
 			class={`flex h-20 flex-1 flex-col gap-[0.1rem] rounded-xl bg-[#393939] ${

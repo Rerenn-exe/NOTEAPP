@@ -6,7 +6,7 @@
 	import AddButton from '$lib/components/app/(main)/add-button/add-button.svelte';
 </script>
 
-<div class="mx-6 flex flex-col gap-6">
+<div class="mx-6 flex flex-col gap-2">
 	<SearchBar />
 	<DateBar />
 	<GroupBar />
