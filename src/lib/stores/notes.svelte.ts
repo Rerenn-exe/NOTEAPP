@@ -11,7 +11,8 @@ export type Note = {
 
 export const noteFilter = $state({
 	selectedGroup: 'All',
-	selectedDates: [] as SvelteDate[]
+	selectedDates: [] as SvelteDate[],
+	searchQuery: ''
 });
 
 export const notes = $state<Note[]>([]);

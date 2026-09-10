@@ -17,9 +17,11 @@
 
 	let filteredNotes = $derived(
 		notes.filter((note) => {
+			// Group filter
 			const matchesGroup =
 				noteFilter.selectedGroup === 'All' || note.group === noteFilter.selectedGroup;
 
+			// Date filter
 			const noteDate = new SvelteDate(note.dateCreated);
 
 			const matchesDate =
@@ -28,7 +30,15 @@
 					(selectedDate) => noteDate.toDateString() === selectedDate.toDateString()
 				);
 
-			return matchesGroup && matchesDate;
+			// Search filter
+			const searchQuery = noteFilter.searchQuery.trim().toLowerCase();
+
+			const matchesSearch =
+				searchQuery === '' ||
+				note.title.toLowerCase().includes(searchQuery) ||
+				note.content.toLowerCase().includes(searchQuery);
+
+			return matchesGroup && matchesDate && matchesSearch;
 		})
 	);
 
